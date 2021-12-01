@@ -22,4 +22,3 @@ C:\C#\TelekomNevaSvyaz\TelekomNevaSvyaz\Session1AuthorizationApp\Session1Authori
 C:\C#\TelekomNevaSvyaz\TelekomNevaSvyaz\Session1AuthorizationApp\Session1AuthorizationApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\C#\TelekomNevaSvyaz\TelekomNevaSvyaz\Session1AuthorizationApp\Session1AuthorizationApp\bin\Debug\ru\EntityFramework.resources.dll
 C:\C#\TelekomNevaSvyaz\TelekomNevaSvyaz\Session1AuthorizationApp\Session1AuthorizationApp\obj\Debug\Session1AuthorizationApp_Content.g.cs
-C:\C#\TelekomNevaSvyaz\TelekomNevaSvyaz\Session1AuthorizationApp\Session1AuthorizationApp\obj\Debug\Session1AuthorizationApp.csproj.CopyComplete

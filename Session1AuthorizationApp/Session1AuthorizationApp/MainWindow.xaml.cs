@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +15,7 @@ using System.Windows.Shapes;
 namespace Session1AuthorizationApp
 {
     using Base;
+    using System.Threading;
 
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -35,7 +35,7 @@ namespace Session1AuthorizationApp
         /// </summary>
         private void BtnCode_Click(object sender, RoutedEventArgs e)
         {
-            GenerateRandomCode();
+            GetCode();
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Session1AuthorizationApp
         {
             if (CurrentCode != TextCode.Text)
             {
-                MessageBox.Show("Неверный код");
+                MessageBox.Show("Неверный код", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -98,13 +98,14 @@ namespace Session1AuthorizationApp
         /// </summary>
         private void TextPass_KeyUp(object sender, KeyEventArgs e)
         {
+            // проверка на то, что был нажат Enter
             if (e.Key == Key.Enter)
             {
                 string password = TextPass.Password;
 
                 if (Employee.Password == password)
                 {
-                    GenerateRandomCode();
+                    GetCode();
                     TextCode.IsEnabled = true;
                     TextCode.Focus();
                     BtnLogin.IsEnabled = true;
@@ -120,7 +121,7 @@ namespace Session1AuthorizationApp
         /// <summary>
         /// Генерация случайного кода
         /// </summary>
-        private void GenerateRandomCode()
+        private string GenerateRandomCode()
         {
             string code = "";
 
@@ -134,9 +135,18 @@ namespace Session1AuthorizationApp
                 code += alphabet[index];
             }
 
+            return code;   
+        }
+
+        private void GetCode()
+        {
+            string code = GenerateRandomCode();
+
             CurrentCode = code;
 
             MessageBox.Show(code, "Внимание! Ваш код!", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+            /// дальше будет работа с таймером (код действителен только 10 секунд)
         }
     }
 }
