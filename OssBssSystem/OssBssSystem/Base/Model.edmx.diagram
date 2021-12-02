@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb7272f028554deb9ab8eeafd6f684f8" Name="Diagram1">
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.AddressRaions" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Client" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.EmployeeRoles" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Employees" Width="1.5" PointX="8" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Genders" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Client_AddressRaions" ManuallyRouted="false" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Client_Genders" ManuallyRouted="false" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Employees_EmployeeRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Contract" Width="1.5" PointX="7.875" PointY="9.5" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Contract_Service" Width="1.5" PointX="10.125" PointY="10.25" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.ContractTypes" Width="1.5" PointX="5.625" PointY="15.375" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Equipments" Width="1.5" PointX="5.625" PointY="18.125" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.EquipmentTypes" Width="1.5" PointX="3.375" PointY="12.875" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Events" Width="1.5" PointX="8" PointY="5.5" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.ProblemTypes" Width="1.5" PointX="3.375" PointY="18.5" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.RaionTypes" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.Requests" Width="1.5" PointX="5.625" PointY="9.125" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.RequestStatuses" Width="1.5" PointX="3.375" PointY="8.875" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.ServiceConnectTypes" Width="1.5" PointX="3.375" PointY="16.25" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.ServiceKinds" Width="1.5" PointX="3.375" PointY="20.875" />
+        <EntityTypeShape EntityType="TelekomNevaSvyazDBModel.ServiceTypes" Width="1.5" PointX="3.375" PointY="23.25" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_AddressRaions_RaionTypes" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Contract_Client" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Requests_Client" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Contract_ContractTypes" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Contract_Equipments" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Contract_Service_Contract" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Contract_Service_ServiceTypes" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Events_EmployeeRoles" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Equipments_EquipmentTypes" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Requests_EquipmentTypes" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Requests_ProblemTypes" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Requests_RequestStatuses" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Requests_ServiceConnectTypes" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Requests_ServiceKinds" />
+        <AssociationConnector Association="TelekomNevaSvyazDBModel.FK_Requests_ServiceTypes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

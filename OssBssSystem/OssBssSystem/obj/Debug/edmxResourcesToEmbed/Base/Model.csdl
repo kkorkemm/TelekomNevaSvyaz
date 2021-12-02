@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TelekomNevaSvyazDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AddressRaions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_AddressRaions" FromRole="AddressRaions" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GenderID" Type="Byte" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TelNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ResindaceAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AddressCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddressRaion" Type="Int32" />
+    <Property Name="AddressPrefix" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AddressHouse" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Pasport" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="7" FixedLength="true" Unicode="true" />
+    <Property Name="PasportPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PasportDate" Type="DateTime" Precision="3" />
+    <Property Name="LicevoySchet" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="AddressRaions" Relationship="Self.FK_Client_AddressRaions" FromRole="Client" ToRole="AddressRaions" />
+    <NavigationProperty Name="Genders" Relationship="Self.FK_Client_Genders" FromRole="Client" ToRole="Genders" />
+  </EntityType>
+  <EntityType Name="EmployeeRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_EmployeeRoles" FromRole="EmployeeRoles" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelNumber" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeRoleID" Type="Int32" Nullable="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="EmployeeRoles" Relationship="Self.FK_Employees_EmployeeRoles" FromRole="Employees" ToRole="EmployeeRoles" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_Genders" FromRole="Genders" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Client_AddressRaions">
+    <End Role="AddressRaions" Type="Self.AddressRaions" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressRaions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="AddressRaion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_EmployeeRoles">
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeRoles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="EmployeeRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TelekomNevaSvyazDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AddressRaions" EntityType="Self.AddressRaions" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="EmployeeRoles" EntityType="Self.EmployeeRoles" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="Genders" EntityType="Self.Genders" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Client_AddressRaions" Association="Self.FK_Client_AddressRaions">
+      <End Role="AddressRaions" EntitySet="AddressRaions" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Genders" Association="Self.FK_Client_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_EmployeeRoles" Association="Self.FK_Employees_EmployeeRoles">
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

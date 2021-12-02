@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TelekomNevaSvyazDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AddressRaions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="GenderID" Type="tinyint" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="TelNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ResindaceAddress" Type="nvarchar(max)" />
+    <Property Name="AddressCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressRaion" Type="int" />
+    <Property Name="AddressPrefix" Type="nvarchar" MaxLength="100" />
+    <Property Name="AddressHouse" Type="nvarchar" MaxLength="10" />
+    <Property Name="Pasport" Type="nchar" MaxLength="12" />
+    <Property Name="Code" Type="nchar" MaxLength="7" />
+    <Property Name="PasportPlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="PasportDate" Type="datetime" />
+    <Property Name="LicevoySchet" Type="nchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="EmployeeRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TelNumber" Type="nchar" MaxLength="12" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="EmployeeRoleID" Type="int" Nullable="false" />
+    <Property Name="Photo" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Client_AddressRaions">
+    <End Role="AddressRaions" Type="Self.AddressRaions" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressRaions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="AddressRaion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_EmployeeRoles">
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeRoles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="EmployeeRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище TelekomNevaSvyazDBModelContainer">
+    <EntitySet Name="AddressRaions" EntityType="Self.AddressRaions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeRoles" EntityType="Self.EmployeeRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Client_AddressRaions" Association="Self.FK_Client_AddressRaions">
+      <End Role="AddressRaions" EntitySet="AddressRaions" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Genders" Association="Self.FK_Client_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_EmployeeRoles" Association="Self.FK_Employees_EmployeeRoles">
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
