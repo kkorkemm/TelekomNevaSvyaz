@@ -4,6 +4,10 @@
     <EntitySetMapping Name="AddressRaions">
       <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.AddressRaions">
         <MappingFragment StoreEntitySet="AddressRaions">
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="MetroCount" ColumnName="MetroCount" />
+          <ScalarProperty Name="Population" ColumnName="Population" />
+          <ScalarProperty Name="Square" ColumnName="Square" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -67,6 +71,131 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contract">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+          <ScalarProperty Name="Addition" ColumnName="Addition" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ReasonOfEnd" ColumnName="ReasonOfEnd" />
+          <ScalarProperty Name="ContractTypeID" ColumnName="ContractTypeID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contract_Service">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.Contract_Service">
+        <MappingFragment StoreEntitySet="Contract_Service">
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractTypes">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.ContractTypes">
+        <MappingFragment StoreEntitySet="ContractTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipments">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.Equipments">
+        <MappingFragment StoreEntitySet="Equipments">
+          <ScalarProperty Name="EquipmentTypeID" ColumnName="EquipmentTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentTypes">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.EquipmentTypes">
+        <MappingFragment StoreEntitySet="EquipmentTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.Events">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeRoleID" ColumnName="EmployeeRoleID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProblemTypes">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.ProblemTypes">
+        <MappingFragment StoreEntitySet="ProblemTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaionTypes">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.RaionTypes">
+        <MappingFragment StoreEntitySet="RaionTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.Requests">
+        <MappingFragment StoreEntitySet="Requests">
+          <ScalarProperty Name="ProblemTypeID" ColumnName="ProblemTypeID" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EquipmentTypeID" ColumnName="EquipmentTypeID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ServiceConnectTypeID" ColumnName="ServiceConnectTypeID" />
+          <ScalarProperty Name="ServiceKindID" ColumnName="ServiceKindID" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestStatuses">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.RequestStatuses">
+        <MappingFragment StoreEntitySet="RequestStatuses">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceConnectTypes">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.ServiceConnectTypes">
+        <MappingFragment StoreEntitySet="ServiceConnectTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceKinds">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.ServiceKinds">
+        <MappingFragment StoreEntitySet="ServiceKinds">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceTypes">
+      <EntityTypeMapping TypeName="TelekomNevaSvyazDBModel.ServiceTypes">
+        <MappingFragment StoreEntitySet="ServiceTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

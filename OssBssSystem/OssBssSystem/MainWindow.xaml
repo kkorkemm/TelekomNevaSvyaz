@@ -13,6 +13,7 @@
         MinWidth="450"
         Icon="Images/image.ico">
     <Grid>
-        
+        <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

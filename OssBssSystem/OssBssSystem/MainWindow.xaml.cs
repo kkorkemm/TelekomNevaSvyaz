@@ -27,6 +27,9 @@ namespace OssBssSystem
             // импортировано
             //ImportData.ImportClients();
             //ImportData.ImportEmployess();
+
+            MainFrame.Navigate(new Pages.MainPage());
+            Navigation.MainFrame = MainFrame;
         }
     }
 }

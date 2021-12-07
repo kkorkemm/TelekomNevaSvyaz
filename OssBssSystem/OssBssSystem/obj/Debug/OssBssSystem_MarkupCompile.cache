@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\C#\TelekomNevaSvyaz\TelekomNevaSvyaz\OssBssSystem\OssBssSystem\App.xaml
-31975574768
+17204773814
 21832530685
-191669377561
+54573817750
 20-1222835869
-MainWindow.xaml;Styles\ButtonStyles.xaml;Styles\Colors.xaml;
+MainWindow.xaml;Pages\AssetsPage.xaml;Pages\BillingPage.xaml;Pages\ClientsPage.xaml;Pages\CRMPage.xaml;Pages\MainPage.xaml;Pages\ManagementPage.xaml;Pages\SupportPage.xaml;Styles\ButtonStyles.xaml;Styles\Colors.xaml;Styles\RadioButtonsStyles.xaml;View\AssetsView.xaml;View\BillingView.xaml;View\ClientsView.xaml;View\CRMView.xaml;View\ManagementView.xaml;View\SupportView.xaml;
 
-True
+False
 
